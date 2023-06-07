@@ -4,7 +4,7 @@ def imprime_mensagem_abertura():
     print("Vamos Jogar o Jogo da Forca")
 
 def palavrasecreta():
-    palavras = ('Otorrinolaringologia')
+    palavras = ('otorrinolaringologia')
     palavra_secreta = palavras
     return palavra_secreta
 
@@ -13,7 +13,6 @@ def inicializa_letras_acertadas(palavra):
 
 def pede_chute():
     chute = input("Qual letra? ")
-    chute = chute.strip().upper()
     return chute
 
 def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
@@ -22,6 +21,10 @@ def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
         if (chute == letra):
             letras_acertadas[index] = letra
         index += 1
+        if(index == 0):
+            chute = chute.strip().upper()
+        else:
+            chute = chute.strip().lower()
 
 def imprime_mensagem_vencedor():
     print("Parabéns, você ganhou! 🏆 ")
@@ -84,7 +87,7 @@ def jogar():
 
     enforcou = False
     acertou = False
-    erros = 0
+    erros = 1
     letras_faltando = len(letras_acertadas)
 
     print(letras_acertadas)
